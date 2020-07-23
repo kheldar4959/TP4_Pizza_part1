@@ -1,0 +1,29 @@
+﻿@model TP4_Pizza_part1.Models.PizzaViewModel
+@using TP4_Pizza_part1.Helpers
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!--Vue Partielle qui permet de factorisé le code en incluant l'ID-->
+    <div class="form-horizontal">
+        @Html.Partial("_PizzaDisplayWithId")
+
+        @Html.CustomSubmit("Save")
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
